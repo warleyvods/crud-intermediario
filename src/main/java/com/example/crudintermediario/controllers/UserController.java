@@ -1,5 +1,8 @@
 package com.example.crudintermediario.controllers;
 
+import com.example.crudintermediario.controllers.dtos.requests.UserRequestDTO;
+import com.example.crudintermediario.controllers.dtos.responses.UserResponseDTO;
+import com.example.crudintermediario.controllers.mappers.UserMapper;
 import com.example.crudintermediario.gateways.UserGateway;
 import com.example.crudintermediario.models.User;
 import org.springframework.http.HttpStatus;
@@ -12,21 +15,24 @@ import java.util.List;
 public class UserController {
 
     private final UserGateway userGateway;
+    private final UserMapper userMapper;
 
-    public UserController(UserGateway userGateway) {
+    public UserController(UserGateway userGateway, UserMapper userMapper) {
         this.userGateway = userGateway;
+        this.userMapper = userMapper;
     }
 
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping
-    public User save(@RequestBody User user) {
-        return userGateway.save(user);
+    public UserResponseDTO save(@RequestBody UserRequestDTO userRequestDTO) {
+        User user = userMapper.toDomain(userRequestDTO);
+        return userMapper.fromDomain(userGateway.save(user));
     }
 
     @ResponseStatus(HttpStatus.OK)
     @GetMapping
-    public List<User> listAll() {
-        return userGateway.listAll();
+    public List<UserResponseDTO> listAll() {
+        return userMapper.fromDomainList(userGateway.listAll());
     }
 
 }

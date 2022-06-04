@@ -23,4 +23,7 @@ public class UserGateway {
         return userRepository.findAll();
     }
 
+    public User byId(Long id) {
+        return userRepository.findById(id).get();
+    }
 }

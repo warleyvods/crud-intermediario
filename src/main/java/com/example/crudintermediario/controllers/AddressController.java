@@ -1,5 +1,6 @@
 package com.example.crudintermediario.controllers;
 
+import com.example.crudintermediario.controllers.dtos.requests.AddressRequestDTO;
 import com.example.crudintermediario.gateways.AddressGateway;
 import com.example.crudintermediario.models.Address;
 import org.springframework.http.HttpStatus;
@@ -19,8 +20,10 @@ public class AddressController {
 
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping
-    public Address save(@RequestBody Address address) {
-        return addressGateway.save(address);
+    public Address save(@RequestBody AddressRequestDTO addressRequestDTO) {
+
+
+        return null;
     }
 
     @ResponseStatus(HttpStatus.OK)

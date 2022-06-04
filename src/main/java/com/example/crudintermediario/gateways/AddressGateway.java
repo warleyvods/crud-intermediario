@@ -11,7 +11,6 @@ public class AddressGateway {
     
     private final AddressRepository addressRepository;
 
-
     public AddressGateway(AddressRepository addressRepository) {
         this.addressRepository = addressRepository;
     }
@@ -23,6 +22,4 @@ public class AddressGateway {
     public List<Address> listAll() {
         return addressRepository.findAll();
     }
-    
-    
 }

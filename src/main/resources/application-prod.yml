@@ -6,12 +6,12 @@ spring:
     url: ${DATABASE_URL}?createDatabaseIfNotExist=true
     username: ${USER_APP}
     password: ${PASSWORD}
-    driver-class-name: com.mysql.jdbc.Driver
+    driver-class-name: com.mysql.cj.jdbc.Driver
 
   jpa:
     database-platform:
     hibernate:
-      ddl-auto: create-drop
+      ddl-auto: update
     properties:
       hibernate:
         format_sql: true

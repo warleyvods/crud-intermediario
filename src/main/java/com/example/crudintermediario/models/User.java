@@ -22,10 +22,13 @@ public class User {
     private String cpf;
     private Integer age;
 
+    @Column(unique = true)
     private String login;
     private String password;
 
     @OneToMany(mappedBy = "user")
     private List<Address> address;
+
+    private boolean admin = false;
 
 }

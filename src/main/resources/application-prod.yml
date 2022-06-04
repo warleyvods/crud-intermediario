@@ -1,0 +1,22 @@
+server:
+  port: 9000
+
+spring:
+  datasource:
+    url: ${DATABASE_URL}?createDatabaseIfNotExist=true
+    username: ${USER_APP}
+    password: ${PASSWORD}
+    driver-class-name: com.mysql.jdbc.Driver
+
+  jpa:
+    database-platform:
+    hibernate:
+      ddl-auto: create-drop
+    properties:
+      hibernate:
+        format_sql: true
+    show-sql: false
+
+  h2:
+    console:
+      enabled: false

@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: crud-intermediario
+
+  profiles:
+    active: ${SCOPE:prod}

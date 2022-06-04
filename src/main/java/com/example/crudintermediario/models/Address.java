@@ -9,19 +9,20 @@ import javax.persistence.*;
 @Getter
 @Setter
 @Entity
-@Table(name = "`user`")
-public class User {
+public class Address {
 
     @EqualsAndHashCode.Include
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String name;
-    private String cpf;
-    private Integer age;
-
-    private String login;
-    private String password;
+    private String street;
+    private String complement;
+    private String number;
+    private String zipCode;
+    private String district;
+    private String city;
+    private String state;
+    private String country;
 
 }
